@@ -1,0 +1,4 @@
+interface:
+  display_name: "clipforge-reference"
+  short_description: "拆解本地参考视频的开场、信息顺序与节奏，产出带时间码证据的剪辑配方；热度需另有来源。"
+  default_prompt: "使用 $clipforge-reference 处理当前视频任务，并给出可验证的产物。"

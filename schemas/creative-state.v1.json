@@ -1,0 +1,269 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ClipForge Creative State v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "content_id",
+    "purpose",
+    "result_contract",
+    "locked_choices",
+    "beats",
+    "artifacts",
+    "global_artifact_ids",
+    "open_issues"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "content_id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}$"
+    },
+    "purpose": {
+      "enum": [
+        "production",
+        "technical_test",
+        "internal_review"
+      ]
+    },
+    "result_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "audience",
+        "viewer_takeaway",
+        "viewer_action",
+        "success_checks"
+      ],
+      "properties": {
+        "audience": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "pattern": "\\S"
+        },
+        "viewer_takeaway": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "pattern": "\\S"
+        },
+        "viewer_action": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000,
+              "pattern": "\\S"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "success_checks": {
+          "type": "array",
+          "maxItems": 10,
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000,
+            "pattern": "\\S"
+          }
+        }
+      }
+    },
+    "locked_choices": {
+      "type": "array",
+      "maxItems": 10,
+      "minItems": 0,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2000,
+        "pattern": "\\S"
+      }
+    },
+    "beats": {
+      "type": "array",
+      "maxItems": 60,
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "beat_id",
+          "purpose",
+          "message",
+          "visual_requirement",
+          "audio_intent",
+          "acceptance",
+          "artifact_ids"
+        ],
+        "properties": {
+          "beat_id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}$"
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000,
+            "pattern": "\\S"
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000,
+            "pattern": "\\S"
+          },
+          "visual_requirement": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000,
+            "pattern": "\\S"
+          },
+          "audio_intent": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000,
+            "pattern": "\\S"
+          },
+          "acceptance": {
+            "type": "array",
+            "maxItems": 10,
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000,
+              "pattern": "\\S"
+            }
+          },
+          "artifact_ids": {
+            "type": "array",
+            "maxItems": 100,
+            "minItems": 0,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}$"
+            },
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "maxItems": 100,
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "artifact_id",
+          "kind",
+          "path"
+        ],
+        "properties": {
+          "artifact_id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}$"
+          },
+          "kind": {
+            "enum": [
+              "plan",
+              "facts",
+              "media",
+              "audio",
+              "evidence",
+              "review",
+              "copy"
+            ]
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096,
+            "pattern": "\\S"
+          }
+        }
+      }
+    },
+    "global_artifact_ids": {
+      "type": "array",
+      "maxItems": 100,
+      "minItems": 0,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}$"
+      },
+      "uniqueItems": true
+    },
+    "open_issues": {
+      "type": "array",
+      "maxItems": 100,
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "issue_id",
+          "beat_ids",
+          "severity",
+          "observation",
+          "next_check",
+          "artifact_ids"
+        ],
+        "properties": {
+          "issue_id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}$"
+          },
+          "beat_ids": {
+            "type": "array",
+            "maxItems": 100,
+            "minItems": 0,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}$"
+            },
+            "uniqueItems": true
+          },
+          "severity": {
+            "enum": [
+              "blocking",
+              "improvement"
+            ]
+          },
+          "observation": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000,
+            "pattern": "\\S"
+          },
+          "next_check": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000,
+            "pattern": "\\S"
+          },
+          "artifact_ids": {
+            "type": "array",
+            "maxItems": 100,
+            "minItems": 0,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}$"
+            },
+            "uniqueItems": true
+          }
+        }
+      }
+    }
+  }
+}

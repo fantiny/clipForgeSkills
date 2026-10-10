@@ -1,0 +1,4 @@
+interface:
+  display_name: "clipforge-tag"
+  short_description: "基于本地视频时间码证据进行场景打标，区分技术属性、观察、业务信息和编辑用途。"
+  default_prompt: "使用 $clipforge-tag 处理当前视频任务，并给出可验证的产物。"

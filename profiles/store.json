@@ -1,0 +1,18 @@
+{
+  "profile_id": "store",
+  "version": 1,
+  "name": "门店",
+  "goal": "交付门店可采用的本地版本",
+  "observation_labels": [
+    "门头",
+    "店内场景",
+    "商品展示"
+  ],
+  "business_fields": [
+    "sku",
+    "packaging",
+    "rights"
+  ],
+  "uncertainty": "保留未知；技术测量、观察和业务确认分开",
+  "cta_required": false
+}

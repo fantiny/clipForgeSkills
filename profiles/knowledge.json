@@ -1,0 +1,18 @@
+{
+  "profile_id": "knowledge",
+  "version": 1,
+  "name": "科普",
+  "goal": "解释一个具体问题",
+  "observation_labels": [
+    "操作步骤",
+    "说明图",
+    "证据来源"
+  ],
+  "business_fields": [
+    "sku",
+    "packaging",
+    "rights"
+  ],
+  "uncertainty": "保留未知；技术测量、观察和业务确认分开",
+  "cta_required": false
+}

@@ -1,0 +1,25 @@
+.venv/
+.runtime/
+.agents/skills/
+.claude/skills/
+.clipforge/
+tmp/
+inputs/
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+htmlcov/
+.DS_Store
+.env
+config/local.json
+*.local.json
+dist/
+outputs/
+.ruff_cache/
+.env.*
+!.env.example
+docs/*.docx
+
+# Company operating plans and local-only publication backups
+/docs/private/

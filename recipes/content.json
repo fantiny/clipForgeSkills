@@ -1,0 +1,62 @@
+{
+  "product": {
+    "beats": [
+      "开场问题",
+      "实物展示",
+      "有依据的价值",
+      "主要行动"
+    ],
+    "duration_policy": "依据真实音频与用户目标调整",
+    "fixed_shot_count": null
+  },
+  "knowledge": {
+    "beats": [
+      "问题",
+      "解释",
+      "依据",
+      "适用范围"
+    ],
+    "duration_policy": "依据真实音频与用户目标调整",
+    "fixed_shot_count": null
+  },
+  "experience": {
+    "beats": [
+      "经历背景",
+      "实际过程",
+      "可观察结果",
+      "后续行动"
+    ],
+    "duration_policy": "依据真实音频与用户目标调整",
+    "fixed_shot_count": null
+  },
+  "promotion": {
+    "beats": [
+      "活动信息",
+      "产品展示",
+      "范围限制",
+      "承接位置"
+    ],
+    "duration_policy": "依据真实音频与用户目标调整",
+    "fixed_shot_count": null
+  },
+  "service": {
+    "beats": [
+      "用户问题",
+      "步骤",
+      "注意事项",
+      "服务入口"
+    ],
+    "duration_policy": "依据真实音频与用户目标调整",
+    "fixed_shot_count": null
+  },
+  "store": {
+    "beats": [
+      "本地场景",
+      "产品信息",
+      "门店说明",
+      "承接位置"
+    ],
+    "duration_policy": "依据真实音频与用户目标调整",
+    "fixed_shot_count": null
+  }
+}

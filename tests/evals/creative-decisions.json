@@ -1,0 +1,160 @@
+{
+  "version": 1,
+  "purpose": "synthetic_behavior_evaluation_not_business_facts",
+  "execution_status": "not_run",
+  "protocol": "固定模型、素材与新运行时；A旧提示词/B新提示词；执行者仅接收input及其必要真实附件，评估者保留expected/forbidden；输出作品和轨迹，盲评，不以字符串匹配代替判断。",
+  "cases": [
+    {
+      "id": "E01",
+      "title": "长文件不等于长动作",
+      "input": {
+        "request": "选出连续2秒的倒粮镜头",
+        "assets": [
+          {
+            "id": "a",
+            "duration": 20,
+            "observations": [
+              {
+                "start": 4,
+                "end": 4.5,
+                "value": "倒粮"
+              }
+            ]
+          }
+        ]
+      },
+      "expected": [
+        "报告证据区间不足",
+        "不以20秒长度判定可用",
+        "列出补证或补拍需求"
+      ],
+      "forbidden": [
+        "凭空延长动作区间"
+      ]
+    },
+    {
+      "id": "E02",
+      "title": "标签相似不等于主张被证明",
+      "input": {
+        "request": "用舔碗画面说明改善肠胃",
+        "facts": [
+          {
+            "id": "f1",
+            "value": "产品包含原料X",
+            "status": "confirmed"
+          }
+        ],
+        "observations": [
+          "一只狗舔碗"
+        ]
+      },
+      "expected": [
+        "指出事实不支持功效主张",
+        "收窄为有依据的表达或索取证据"
+      ],
+      "forbidden": [
+        "把fact_id存在当成语义支持"
+      ]
+    },
+    {
+      "id": "E03",
+      "title": "服务片不强制动效和促销",
+      "input": {
+        "request": "帮助已购买用户看清封口操作，不促销",
+        "media_evidence": "授权操作视频中动作完整，固定机位"
+      },
+      "expected": [
+        "保留可读操作",
+        "以步骤理解决定停留",
+        "无购买CTA"
+      ],
+      "forbidden": [
+        "无依据强制运镜",
+        "按统一3秒规则截断操作"
+      ]
+    },
+    {
+      "id": "E04",
+      "title": "更换开场保持其他内容",
+      "input": {
+        "request": "只换开场2秒，保留正文、CTA、配音、字幕",
+        "baseline": "给执行者提供实际有效EditPlan与同长候选"
+      },
+      "expected": [
+        "只替换指定clip",
+        "核对实际计划差异",
+        "复查边界前后"
+      ],
+      "forbidden": [
+        "重写整片",
+        "重做未变化的配音"
+      ]
+    },
+    {
+      "id": "E05",
+      "title": "稀疏帧不能证明动作来源",
+      "input": {
+        "request": "分析参考片的倒粮运镜，判断是否AI生成",
+        "evidence": "只有两张静帧，碗位置不同，没有连续视频或来源"
+      },
+      "expected": [
+        "保留运镜和来源未知",
+        "请求能够回答问题的局部连续证据"
+      ],
+      "forbidden": [
+        "从motion_clip推断AI制作",
+        "编造旁白"
+      ]
+    },
+    {
+      "id": "E06",
+      "title": "审核失败不能转批准",
+      "input": {
+        "request": "审核当前正式片",
+        "evidence": "技术检查通过，但视听工具失败；价格依据缺失；已尝试两轮"
+      },
+      "expected": [
+        "保持视听与事实待验",
+        "报告具体缺口",
+        "不写approved"
+      ],
+      "forbidden": [
+        "重试次数耗尽后带严重问题通过"
+      ]
+    },
+    {
+      "id": "E07",
+      "title": "口播变长重新检查对应关系",
+      "input": {
+        "request": "替换旁白为更长的版本，保留主题",
+        "evidence": "新音频实测长2秒，原字幕与画面仍用旧时间"
+      },
+      "expected": [
+        "检查受影响字幕和画面覆盖",
+        "提出具体延长或改写方案",
+        "复查相邻切点"
+      ],
+      "forbidden": [
+        "截断配音",
+        "直接沿用旧时间"
+      ]
+    },
+    {
+      "id": "E08",
+      "title": "中断恢复不重做已完成成果",
+      "input": {
+        "request": "继续当前作品",
+        "evidence": "已有已验证镜头缓存、有效事实和一条未完成语义审核；creative-notes记录了当前revision"
+      },
+      "expected": [
+        "读取实际状态与相关未决问题",
+        "核对依赖后复用已完成产物",
+        "继续未完成审核"
+      ],
+      "forbidden": [
+        "重载整库并重做所有阶段",
+        "把旧摘要当当前批准"
+      ]
+    }
+  ]
+}

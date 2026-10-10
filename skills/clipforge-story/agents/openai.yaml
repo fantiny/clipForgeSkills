@@ -1,0 +1,4 @@
+interface:
+  display_name: "clipforge-story"
+  short_description: "依据已确认产品事实、活动和可用镜头编写视频文案与分镜，覆盖种草、科普、分享、促销、服务和门店场景。"
+  default_prompt: "使用 $clipforge-story 处理当前视频任务，并给出可验证的产物。"

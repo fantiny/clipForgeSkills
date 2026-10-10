@@ -1,0 +1,4 @@
+interface:
+  display_name: "clipforge-edit"
+  short_description: "执行审定剪辑方案并局部修改视频、字幕和声音，复用本地合成引擎与镜头缓存。"
+  default_prompt: "使用 $clipforge-edit 处理当前视频任务，并给出可验证的产物。"

@@ -1,0 +1,18 @@
+{
+  "profile_id": "product",
+  "version": 1,
+  "name": "种草",
+  "goal": "展示真实商品与使用场景",
+  "observation_labels": [
+    "主体",
+    "产品特写",
+    "使用动作"
+  ],
+  "business_fields": [
+    "sku",
+    "packaging",
+    "rights"
+  ],
+  "uncertainty": "保留未知；技术测量、观察和业务确认分开",
+  "cta_required": false
+}

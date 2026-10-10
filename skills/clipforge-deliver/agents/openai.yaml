@@ -1,0 +1,4 @@
+interface:
+  display_name: "clipforge-deliver"
+  short_description: "将已审定正式成片打包为MP4、字幕、封面与可复现方案，检查时效、哈希和来源，并记录交付成本。"
+  default_prompt: "使用 $clipforge-deliver 处理当前视频任务，并给出可验证的产物。"

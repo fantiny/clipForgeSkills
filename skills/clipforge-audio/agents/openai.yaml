@@ -1,0 +1,4 @@
+interface:
+  display_name: "clipforge-audio"
+  short_description: "为视频选择原声、已有或经授权生成的配音及音乐，依据真实音频和时间码安排字幕与混音。"
+  default_prompt: "使用 $clipforge-audio 处理当前视频任务，并给出可验证的产物。"

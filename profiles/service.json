@@ -1,0 +1,18 @@
+{
+  "profile_id": "service",
+  "version": 1,
+  "name": "使用服务",
+  "goal": "帮助已购买用户正确使用",
+  "observation_labels": [
+    "保存步骤",
+    "准备动作",
+    "使用说明"
+  ],
+  "business_fields": [
+    "sku",
+    "packaging",
+    "rights"
+  ],
+  "uncertainty": "保留未知；技术测量、观察和业务确认分开",
+  "cta_required": false
+}
